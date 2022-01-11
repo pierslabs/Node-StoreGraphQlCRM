@@ -10,7 +10,7 @@ const { Error } = require("mongoose");
 const crearToken = (usuario, secreto, expiresIn) => {
   const { id, email, nombre, apellido } = usuario;
 
-  return jwt.sign({ id }, secreto, { expiresIn });
+  return jwt.sign({ id, email, nombre, apellido }, secreto, { expiresIn });
 };
 
 // Resolvers
@@ -173,7 +173,6 @@ const resolvers = {
     },
   },
 
-  // Mutations ------------------------------------------------------------------------
   Mutation: {
     // Usuarios
     nuevoUsuario: async (_, { input }) => {
