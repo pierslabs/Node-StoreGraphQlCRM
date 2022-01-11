@@ -18,9 +18,10 @@ const resolvers = {
   // Querys -----------------------------------------------------------------------
   Query: {
     // Usuarios
-    obtenerUsuario: async (_, { token }) => {
-      const usuarioId = await jwt.verify(token, process.env.SECRET);
-      return usuarioId;
+    obtenerUsuario: async (_, {}, ctx) => {
+      // const usuarioId = await jwt.verify(token, process.env.SECRET);
+      // return usuarioId;
+      return ctx.usuario;
     },
 
     // Productos
