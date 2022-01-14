@@ -56,6 +56,8 @@ const typeDefs = gql`
   type PedidoGrupo {
     id: ID
     cantidad: Int
+    nombre: String
+    precio: Float
   }
 
   #inputs
@@ -88,6 +90,8 @@ const typeDefs = gql`
   input PedidoProductoInput {
     id: ID
     cantidad: Int
+    nombre: String
+    precio: Float
   }
 
   input PedidoInput {
@@ -139,7 +143,7 @@ const typeDefs = gql`
     #Producto
     nuevoProducto(input: ProductoInput): Producto
     actualizarProducto(id: ID!, input: ProductoInput): Producto
-    eliminarProducto: String
+    eliminarProducto(id: ID!): String
 
     #Clientes
     nuevoCliente(input: ClientesInput): Cliente

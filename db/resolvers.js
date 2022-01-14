@@ -28,6 +28,7 @@ const resolvers = {
     obtenerProductos: async () => {
       try {
         const productos = await Producto.find({});
+        console.log(productos);
         return productos;
       } catch (error) {
         console.log(error);
