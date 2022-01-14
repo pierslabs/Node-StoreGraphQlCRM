@@ -343,7 +343,7 @@ const resolvers = {
 
         if (articulo.cantidad > producto.existencia) {
           throw new Error(
-            `El articulo ${producto.nombre} excede de la cantidad  que existe en stock`
+            `El articulo ${producto.nombre} excede de la cantidad disponible`
           );
         } else {
           // restar cantidad de stock
