@@ -141,7 +141,9 @@ const resolvers = {
 
     obtenerPedidosVendedor: async (_, {}, ctx) => {
       try {
-        const pedidos = await Pedido.find({ vendedor: ctx.usuario.id });
+        const pedidos = await Pedido.find({
+          vendedor: ctx.usuario.id,
+        }).populate("cliente");
 
         return pedidos;
       } catch (error) {
@@ -360,6 +362,7 @@ const resolvers = {
       // guardar en ddbb
 
       const resultado = await nuevoPedido.save();
+      console.log(resultado);
       return resultado;
     },
 
